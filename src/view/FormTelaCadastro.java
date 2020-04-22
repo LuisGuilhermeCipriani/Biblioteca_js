@@ -46,6 +46,8 @@ public class FormTelaCadastro extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        jPanel1.setEnabled(false);
+
         LBCadastrar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         LBCadastrar.setText("Digite as informações abaixo para cadastrar um livro");
 
@@ -65,11 +67,6 @@ public class FormTelaCadastro extends javax.swing.JFrame {
 
         BTLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/limpar.png"))); // NOI18N
         BTLimpar.setText("Limpar");
-        BTLimpar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BTLimparActionPerformed(evt);
-            }
-        });
 
         BTSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/salvar.png"))); // NOI18N
         BTSalvar.setText("Cadastrar");
@@ -81,11 +78,6 @@ public class FormTelaCadastro extends javax.swing.JFrame {
 
         BTSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/sair.png"))); // NOI18N
         BTSair.setText("Sair");
-        BTSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BTSairActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -127,7 +119,7 @@ public class FormTelaCadastro extends javax.swing.JFrame {
                         .addComponent(BTSalvar)
                         .addGap(42, 42, 42)
                         .addComponent(BTSair)))
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,7 +151,7 @@ public class FormTelaCadastro extends javax.swing.JFrame {
                     .addComponent(BTLimpar)
                     .addComponent(BTSalvar)
                     .addComponent(BTSair))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
@@ -169,20 +161,8 @@ public class FormTelaCadastro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BTSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTSalvarActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_BTSalvarActionPerformed
-
-    private void BTLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTLimparActionPerformed
-        TFAutor.setText("");
-        TFData.setText("");
-        TFEditora.setText("");
-        TFNome.setText("");
-        CBGenero.setSelectedItem("Selecione uma das opções");
-    }//GEN-LAST:event_BTLimparActionPerformed
-
-    private void BTSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTSairActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_BTSairActionPerformed
 
     /**
      * @param args the command line arguments
