@@ -92,6 +92,11 @@ public class FormTelaPrincipal extends javax.swing.JFrame {
         MIAlugar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         MIAlugar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/alugarItem.png"))); // NOI18N
         MIAlugar.setText("Alugar Livro");
+        MIAlugar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MIAlugarActionPerformed(evt);
+            }
+        });
         MenuAlugar.add(MIAlugar);
 
         jMenuBar1.add(MenuAlugar);
@@ -132,6 +137,10 @@ public class FormTelaPrincipal extends javax.swing.JFrame {
     private void MIPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIPesquisarActionPerformed
         new FormTelaPesquisarLivro().setVisible(true);
     }//GEN-LAST:event_MIPesquisarActionPerformed
+
+    private void MIAlugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIAlugarActionPerformed
+        new FormTelaAluguel().setVisible(true);
+    }//GEN-LAST:event_MIAlugarActionPerformed
 
     /**
      * @param args the command line arguments
