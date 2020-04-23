@@ -30,6 +30,14 @@ public class LivroController {
     public List<Livro> getListaLivrosCadastrados() {
         return listaLivrosCadastrados;
     }
+
+    public Livro getLivro() {
+        return livro;
+    }
+
+    public void setLivro(Livro livro) {
+        this.livro = livro;
+    }
     
     public void cadastrarLivro(){
         listaLivrosCadastrados.add(livro);

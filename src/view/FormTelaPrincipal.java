@@ -5,17 +5,18 @@
  */
 package view;
 
+import controller.LivroController;
+
 /**
  *
  * @author cipri
  */
 public class FormTelaPrincipal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FormTelaPrincipal
-     */
+    public static LivroController livroController;
     public FormTelaPrincipal() {
         initComponents();
+        livroController = new LivroController();
     }
 
     /**
