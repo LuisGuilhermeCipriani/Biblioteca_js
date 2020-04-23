@@ -209,10 +209,12 @@ public class FormTelaCadastro extends javax.swing.JFrame {
         }
         
         if(!(CBGenero.getSelectedItem().equals("Selecione uma das opções"))){
-            FormTelaPrincipal.livroController.cadastrarLivro();
-            JOptionPane.showMessageDialog(null, "Livro Cadastrado com Sucesso!");
+            if(!(nome.isEmpty() && autor.isEmpty() && data.isEmpty() && editora.isEmpty())){
+                FormTelaPrincipal.livroController.cadastrarLivro();
+                JOptionPane.showMessageDialog(null, "Livro Cadastrado com Sucesso!");
+            }
         }else{
-            JOptionPane.showMessageDialog(null, "Escolha uma das opções de gênero");
+            JOptionPane.showMessageDialog(null, "Por Favor Preencha Todos Os Campos");
         }
     }//GEN-LAST:event_BTSalvarActionPerformed
 

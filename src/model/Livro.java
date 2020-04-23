@@ -19,17 +19,19 @@ public class Livro {
     private boolean alugado = false;
     private String lancamento;
     private int ID;
+    private String usuarioAluguel;
 
     public Livro() {
     }
 
-    public Livro(String nome, String autor, Genero genero, String editora, String lancamento, int ID) {
+    public Livro(String nome, String autor, Genero genero, String editora, String lancamento, int ID, String usuarioAluguel) {
         this.nome = nome;
         this.autor = autor;
         this.genero = genero;
         this.editora = editora;
         this.lancamento = lancamento;
         this.ID = ID;
+        this.usuarioAluguel = usuarioAluguel;
     }
 
     public String getNome() {
@@ -88,7 +90,15 @@ public class Livro {
         this.ID = ID;
     }
 
-    public String getAlugado(){
+    public String getUsuarioAluguel() {
+        return usuarioAluguel;
+    }
+
+    public void setUsuarioAluguel(String usuarioAluguel) {
+        this.usuarioAluguel = usuarioAluguel;
+    }
+
+    public String mensagemAluguel(){
         if(isAlugado()){
             return "Sim";
         }

@@ -5,6 +5,10 @@
  */
 package view;
 
+import java.util.List;
+import javax.swing.JOptionPane;
+import model.Livro;
+
 /**
  *
  * @author cipri
@@ -36,6 +40,7 @@ public class FormTelaAluguel extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        BTDevolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -48,6 +53,11 @@ public class FormTelaAluguel extends javax.swing.JFrame {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/alugar.png"))); // NOI18N
         jButton1.setText("Alugar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/limpar.png"))); // NOI18N
         jButton2.setText("Limpar");
@@ -62,6 +72,14 @@ public class FormTelaAluguel extends javax.swing.JFrame {
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
+            }
+        });
+
+        BTDevolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/alugarItem.png"))); // NOI18N
+        BTDevolver.setText("Devolver");
+        BTDevolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTDevolverActionPerformed(evt);
             }
         });
 
@@ -81,13 +99,15 @@ public class FormTelaAluguel extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jButton1)
-                                .addGap(37, 37, 37)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(BTDevolver)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                                 .addComponent(jButton2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButton3))
                             .addComponent(TFSolicitante)
                             .addComponent(TFNome))))
-                .addContainerGap(183, Short.MAX_VALUE))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,7 +126,8 @@ public class FormTelaAluguel extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(jButton3)
+                    .addComponent(BTDevolver))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
@@ -125,6 +146,26 @@ public class FormTelaAluguel extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String nomeLivro = TFNome.getText();
+        String nomeUsuario = TFSolicitante.getText();
+        if(!(nomeLivro.isEmpty() && nomeUsuario.isEmpty())){
+            FormTelaPrincipal.livroController.alugar(nomeLivro, nomeUsuario);
+        }else{
+            JOptionPane.showMessageDialog(null, "Por Favor Preencha Todos Os Campos");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void BTDevolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTDevolverActionPerformed
+        String nomeLivro = TFNome.getText();
+        String nomeUsuario = TFSolicitante.getText();
+        if(!(nomeLivro.isEmpty() && nomeUsuario.isEmpty())){
+            FormTelaPrincipal.livroController.devolver(nomeLivro, nomeUsuario);
+        }else{
+            JOptionPane.showMessageDialog(null, "Por Favor Preencha Todos Os Campos");
+        }
+    }//GEN-LAST:event_BTDevolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -162,6 +203,7 @@ public class FormTelaAluguel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BTDevolver;
     private javax.swing.JLabel LBAluguel;
     private javax.swing.JTextField TFNome;
     private javax.swing.JTextField TFSolicitante;

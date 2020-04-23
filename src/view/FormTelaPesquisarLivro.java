@@ -139,7 +139,7 @@ public class FormTelaPesquisarLivro extends javax.swing.JFrame {
                 livro.getEditora(),
                 livro.getLancamento(),
                 livro.getGenero(),
-                livro.getAlugado(),
+                livro.mensagemAluguel(),
                 livro.getID()
             });
         }

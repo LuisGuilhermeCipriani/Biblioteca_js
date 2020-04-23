@@ -7,6 +7,7 @@ package controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import model.Livro;
 
 /**
@@ -43,4 +44,36 @@ public class LivroController {
         listaLivrosCadastrados.add(livro);
     }
     
+    public void alugar(String nomeLivro, String nomeUsuario){
+        for(Livro l: listaLivrosCadastrados){
+            if(l.getNome().toLowerCase().trim().equals(nomeLivro.toLowerCase().trim())){
+                if(l.isAlugado() == false){
+                    l.setAlugado(true);
+                    l.setUsuarioAluguel(nomeUsuario);
+                    JOptionPane.showMessageDialog(null, "Livro " + l.getNome() + " Alugado com sucesso!");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Livro está alugado para " + nomeUsuario);
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "Livro Não Cadastrado");
+            }
+        }
+    }
+    
+    public void devolver(String nomeLivro, String nomeUsuario){
+        for(Livro l: listaLivrosCadastrados){
+            if(l.getNome().toLowerCase().trim().equals(nomeLivro.toLowerCase().trim())){
+                if(l.isAlugado() == true){
+                    if(l.getUsuarioAluguel().toLowerCase().trim().equals(nomeUsuario.toLowerCase().trim())){
+                        l.setAlugado(false);
+                        JOptionPane.showMessageDialog(null, "Livro " + l.getNome() + " Devolvido com sucesso!");
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Livro " + l.getNome() + " Não Está Alugado Para " + nomeUsuario);
+                    }
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "Livro Não Cadastrado");
+            }
+        }
+    }
 }
