@@ -77,6 +77,11 @@ public class FormTelaPrincipal extends javax.swing.JFrame {
         MIPesquisar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         MIPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/pesquisarItem.png"))); // NOI18N
         MIPesquisar.setText("Pesquisar Livros");
+        MIPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MIPesquisarActionPerformed(evt);
+            }
+        });
         MenuPesquisar.add(MIPesquisar);
 
         jMenuBar1.add(MenuPesquisar);
@@ -123,6 +128,10 @@ public class FormTelaPrincipal extends javax.swing.JFrame {
     private void MICadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MICadastrarActionPerformed
         new FormTelaCadastro().setVisible(true);
     }//GEN-LAST:event_MICadastrarActionPerformed
+
+    private void MIPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIPesquisarActionPerformed
+        new FormTelaPesquisarLivro().setVisible(true);
+    }//GEN-LAST:event_MIPesquisarActionPerformed
 
     /**
      * @param args the command line arguments

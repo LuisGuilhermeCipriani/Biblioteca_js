@@ -40,9 +40,6 @@ public class FormTelaCadastro extends javax.swing.JFrame {
             FormTelaPrincipal.livroController.getLivro().setGenero(Genero.Quadrinhos);
         }else if(CBGenero.getSelectedItem().equals("Terror")){
             FormTelaPrincipal.livroController.getLivro().setGenero(Genero.Terror);
-        }else if(CBGenero.getSelectedItem().equals("Selecione uma das opções")){
-            String mensagem = "Escolha uma das opções de gênero";
-            JOptionPane.showMessageDialog(null, mensagem);
         }
     }
     @SuppressWarnings("unchecked")
@@ -200,12 +197,23 @@ public class FormTelaCadastro extends javax.swing.JFrame {
         String autor = TFAutor.getText();
         String data = TFData.getText();
         String editora = TFEditora.getText();
+        FormTelaPrincipal.livroController.setLivro(new Livro());
         selecionaGenero();
         FormTelaPrincipal.livroController.getLivro().setNome(nome);
         FormTelaPrincipal.livroController.getLivro().setAutor(autor);
         FormTelaPrincipal.livroController.getLivro().setLancamento(data);
         FormTelaPrincipal.livroController.getLivro().setEditora(editora);
-        FormTelaPrincipal.livroController.cadastrarLivro();
+        
+        for(int i = 0; i <= listaLivrosCadastrados.size(); i ++){
+            FormTelaPrincipal.livroController.getLivro().setID(i+1);
+        }
+        
+        if(!(CBGenero.getSelectedItem().equals("Selecione uma das opções"))){
+            FormTelaPrincipal.livroController.cadastrarLivro();
+            JOptionPane.showMessageDialog(null, "Livro Cadastrado com Sucesso!");
+        }else{
+            JOptionPane.showMessageDialog(null, "Escolha uma das opções de gênero");
+        }
     }//GEN-LAST:event_BTSalvarActionPerformed
 
     private void BTSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTSairActionPerformed

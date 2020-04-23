@@ -86,6 +86,13 @@ public class Livro {
 
     public void setID(int ID) {
         this.ID = ID;
-    }    
+    }
+
+    public String getAlugado(){
+        if(isAlugado()){
+            return "Sim";
+        }
+        return "Não";
+    }
     
 }

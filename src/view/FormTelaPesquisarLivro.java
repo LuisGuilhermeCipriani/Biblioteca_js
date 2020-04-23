@@ -5,17 +5,20 @@
  */
 package view;
 
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import model.Livro;
+
 /**
  *
  * @author cipri
  */
 public class FormTelaPesquisarLivro extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FormTelaPesquisarLivro
-     */
+    DefaultTableModel tabelaPesquisa;
     public FormTelaPesquisarLivro() {
         initComponents();
+        tabelaPesquisa = (DefaultTableModel) TBPesquisa.getModel();
     }
 
     /**
@@ -34,6 +37,11 @@ public class FormTelaPesquisarLivro extends javax.swing.JFrame {
         BTSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         LBPesquisa.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         LBPesquisa.setText("Na tabela abaixo são apresentadas informações referentes aos livros cadastrados");
@@ -96,9 +104,9 @@ public class FormTelaPesquisarLivro extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(138, 138, 138)
+                .addGap(146, 146, 146)
                 .addComponent(LBPesquisa)
-                .addContainerGap(190, Short.MAX_VALUE))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,6 +129,21 @@ public class FormTelaPesquisarLivro extends javax.swing.JFrame {
     private void BTSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTSairActionPerformed
         this.dispose();
     }//GEN-LAST:event_BTSairActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        List<Livro> listaLivros = FormTelaPrincipal.livroController.getListaLivrosCadastrados();
+        for(Livro livro: listaLivros){
+            tabelaPesquisa.addRow(new Object[]{
+                livro.getNome(),
+                livro.getAutor(),
+                livro.getEditora(),
+                livro.getLancamento(),
+                livro.getGenero(),
+                livro.getAlugado(),
+                livro.getID()
+            });
+        }
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
