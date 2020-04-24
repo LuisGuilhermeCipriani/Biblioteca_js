@@ -37,6 +37,7 @@ public class FormTelaPesquisarLivro extends javax.swing.JFrame {
         BTSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -75,7 +76,9 @@ public class FormTelaPesquisarLivro extends javax.swing.JFrame {
             TBPesquisa.getColumnModel().getColumn(0).setResizable(false);
             TBPesquisa.getColumnModel().getColumn(1).setResizable(false);
             TBPesquisa.getColumnModel().getColumn(2).setResizable(false);
-            TBPesquisa.getColumnModel().getColumn(3).setResizable(false);
+            TBPesquisa.getColumnModel().getColumn(3).setMinWidth(200);
+            TBPesquisa.getColumnModel().getColumn(3).setPreferredWidth(200);
+            TBPesquisa.getColumnModel().getColumn(3).setMaxWidth(200);
             TBPesquisa.getColumnModel().getColumn(4).setResizable(false);
             TBPesquisa.getColumnModel().getColumn(5).setResizable(false);
             TBPesquisa.getColumnModel().getColumn(6).setResizable(false);
